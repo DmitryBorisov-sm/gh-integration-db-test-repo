@@ -1,0 +1,16 @@
+name: Test Workflow
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Test input'
+        required: false
+        default: 'World'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run test
+        run: echo "Hello ${{ github.event.inputs.name }}"
